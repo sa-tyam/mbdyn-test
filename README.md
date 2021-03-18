@@ -4,7 +4,7 @@ a constitutive law module
 
 I created a module named module-gsoc-satyam. 
 
-Constitutive law 
+Constitutive law  :   
 elastic modulus (E) = 2 x rigidity modulus (G) x ( 1 + poisson's ratio (Mu) )
 
 is used in this module.
