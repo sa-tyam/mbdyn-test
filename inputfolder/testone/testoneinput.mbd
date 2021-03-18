@@ -1,0 +1,50 @@
+module load: "libmodule-gsoc-satyam";
+
+set: real rigiditymod = 4.e6;				# set the value of rigidity modulud of rod here
+set: real poissonratio = 0.30;     			# set the value of poisson's ratio here
+set: real org_len = 190.e-3;				# set the original length of rod here
+set: real L0 = 200.e-3;				# set the extended length of rod here
+
+begin: data;
+	problem: initial value;
+end: data;
+
+begin: initial value;
+	initial time: 0.;
+	final time: 10.;
+	time step: 1e-2;
+	tolerance: 1e-6;
+	max iterations: 10;
+
+end: initial value;
+
+begin: control data;
+	structural nodes: 2;
+	joints: 3;
+end: control data;
+
+
+begin: nodes;
+	structural: 0, static, null, eye, null, null;
+	structural: 1, static, 0., 0., L0, eye, null, null;
+end: nodes;
+
+begin: elements;
+
+	joint: 0, clamp, 0, node, node;
+	joint: 1, total pin joint,
+		1,
+			position, reference, node, null,
+		position, reference, global, null,
+		position constraint, 1, 1, 1, 0., 0., 1.,
+			const, L0,
+			# cosine, 2., pi/2., 1.e-2*L0, forever, L0,
+		orientation constraint, 1, 1, 1, null;
+	joint: 2, rod,
+		0,
+		1,
+		org_len,
+		rigmod pois, rigiditymod, poissonratio;
+		
+end: elements;
+
