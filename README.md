@@ -15,6 +15,6 @@ Currently it is developed just for 1D objects like rods.
 In order to complete this module, I took references from the modules module-constlaw, module-contcontact, module-hunt-crossley and module-muscles.
 
 A sample input file is provided in the folder. We can change the data and see the result changing.
-I have tested the input files for four cases, changing the values of rigidity modulud and poisson's ration in each case. The output change can be seen in the plot images available in the folder. In some test cases very large values have been provided as input thus generating large value as fource. a commom value is provided in 'testfour' considering the case of steel and it guves us reasonable results.
+I have tested the input files for four cases, changing the values of rigidity modulud and poisson's ration in each case. The output change can be seen in the plot images available in the folder. In some test cases very large values have been provided as input thus generating large value as fource. a commom value is provided in 'testfour' and it gives us reasonable results.
 
 
